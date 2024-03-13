@@ -2,6 +2,10 @@
 
 This is a computer simulation of a Rubik's Cube, implemented in Python using Pygame and OpenGL. It allows users to interact with a virtual Rubik's Cube, rotating its layers using mouse clicks or keyboard inputs. 
 
+<p float="left">
+<img src="https://github.com/knrdsmt/Rubik-Cube/blob/master/cube.png?raw=true" alt="Cube" width="45%" height="auto" /><img src="https://github.com/knrdsmt/Rubik-Cube/blob/master/cube2.png?raw=true" alt="Cube2" width="45%" />
+</p>
+
 ### Features
 
 - **Mouse Interaction**: Users can rotate the entire cube by clicking and dragging the mouse.
@@ -52,6 +56,10 @@ This project was created by Konrad Siemiątkowski. If you have any questions or 
 # Symulator kostki Rubika
 
 To jest komputerowa symulacja kostki Rubika, zaimplementowana w języku Python przy użyciu bibliotek Pygame i OpenGL. Pozwala użytkownikom na interakcję z wirtualną kostką Rubika, obracając jej warstwy za pomocą kliknięć myszą lub klawiatury.
+
+<p float="left">
+<img src="https://github.com/knrdsmt/Rubik-Cube/blob/master/cube.png?raw=true" alt="Cube" width="45%" height="auto" /><img src="https://github.com/knrdsmt/Rubik-Cube/blob/master/cube2.png?raw=true" alt="Cube2" width="45%" />
+</p>
 
 ### Funkcje
 
