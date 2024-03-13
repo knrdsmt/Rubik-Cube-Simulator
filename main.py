@@ -215,7 +215,7 @@ class WholeCube:
 
 def main():
     pygame.init()
-    display = (800, 600)
+    display = (1600, 900)
     pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
     glEnable(GL_DEPTH_TEST)
 
