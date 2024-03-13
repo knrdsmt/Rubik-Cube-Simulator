@@ -44,14 +44,6 @@ This is a computer simulation of a Rubik's Cube, implemented in Python using Pyg
    python rubik.py
    ```
 
-### Acknowledgments
-
-This project was inspired by the classic Rubik's Cube puzzle and various implementations found online. Special thanks to the developers of Pygame and PyOpenGL for their excellent libraries.
-
-### Contributors
-
-- [Your Name](https://github.com/yourusername)
-
 ### Autor
 
 This project was created by Konrad Siemiątkowski. If you have any questions or suggestions, please feel free to contact me.
