@@ -1,4 +1,4 @@
-## Rubik's Cube Simulator
+# Rubik's Cube Simulator
 
 This is a computer simulation of a Rubik's Cube, implemented in Python using Pygame and OpenGL. It allows users to interact with a virtual Rubik's Cube, rotating its layers using mouse clicks or keyboard inputs. 
 
@@ -47,3 +47,54 @@ This is a computer simulation of a Rubik's Cube, implemented in Python using Pyg
 ### Autor
 
 This project was created by Konrad Siemiątkowski. If you have any questions or suggestions, please feel free to contact me.
+<p>&nbsp;</p>
+
+# Symulator kostki Rubika
+
+To jest komputerowa symulacja kostki Rubika, zaimplementowana w języku Python przy użyciu bibliotek Pygame i OpenGL. Pozwala użytkownikom na interakcję z wirtualną kostką Rubika, obracając jej warstwy za pomocą kliknięć myszą lub klawiatury.
+
+### Funkcje
+
+- **Interakcja myszą**: Użytkownicy mogą obracać całą kostkę, klikając i przeciągając myszą.
+- **Sterowanie klawiaturą**: Dostępne są różne skróty klawiaturowe do obracania określonych warstw kostki, cofania ruchów, resetowania kamery, tasowania kostki i wyświetlania pomocy.
+- **Animacja**: Gładka animacja jest dostępna podczas obracania kostką, poprawiając wrażenia użytkownika.
+- **Tasowanie**: Użytkownicy mogą tasować kostkę losowo, aby uzyskać nowe wyzwanie.
+
+### Jak korzystać
+
+- **Sterowanie myszą**:
+  - Lewy przycisk myszy i przeciąganie: Obrót całej kostki.
+  - Prawy przycisk myszy: Zatrzymaj obrót myszą.
+
+- **Sterowanie klawiaturą**:
+  - **1 do 9**: Obróć warstwy kostki zgodnie z ruchem wskazówek zegara.
+  - **Q do O**: Obróć warstwy kostki przeciwnie do ruchu wskazówek zegara.
+  - **Z**: Cofnij ostatni ruch.
+  - **X**: Cofnij wszystkie ruchy.
+  - **C**: Zresetuj ustawienia kamery.
+  - **V**: Potasuj kostkę.
+  - **H**: Wyświetl pomoc.
+
+### Wymagania
+
+- Python 3.x
+- Pygame
+- PyOpenGL
+
+### Jak uruchomić
+
+1. Zainstaluj Pythona (jeśli nie jest już zainstalowany).
+2. Zainstaluj Pygame i PyOpenGL za pomocą pip:
+   ```
+   pip install pygame PyOpenGL
+   ```
+3. Sklonuj lub pobierz to repozytorium.
+4. Przejdź do katalogu zawierającego pobrane pliki.
+5. Uruchom skrypt `rubik.py` za pomocą Pythona:
+   ```
+   python rubik.py
+   ```
+
+### Autor
+
+Autorem tego projektu jest Konrad Siemiątkowski. Jeśli masz jakiekolwiek pytania lub sugestie, śmiało się ze mną skontaktuj.
