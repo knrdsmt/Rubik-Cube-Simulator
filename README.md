@@ -48,9 +48,6 @@ This is a computer simulation of a Rubik's Cube, implemented in Python using Pyg
    python rubik.py
    ```
 
-### Autor
-
-This project was created by Konrad Siemiątkowski. If you have any questions or suggestions, please feel free to contact me.
 <p>&nbsp;</p>
 
 # Symulator kostki Rubika
@@ -102,7 +99,3 @@ To jest komputerowa symulacja kostki Rubika, zaimplementowana w języku Python p
    ```
    python rubik.py
    ```
-
-### Autor
-
-Autorem tego projektu jest Konrad Siemiątkowski. Jeśli masz jakiekolwiek pytania lub sugestie, śmiało się ze mną skontaktuj.
