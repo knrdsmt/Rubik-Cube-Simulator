@@ -6,7 +6,7 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from pygame.locals import *
 
-# definicje wierzchołków, krawędzi, powierzchni i kolorów sześcianu
+# definitions of vertices, edges, surfaces, and colors of the cube
 vertices = ((1, -1, -1), (1, 1, -1), (-1, 1, -1), (-1, -1, -1), (1, -1, 1), (1, 1, 1), (-1, -1, 1), (-1, 1, 1))
 edges = ((0, 1), (0, 3), (0, 4), (2, 1), (2, 3), (2, 7), (6, 3), (6, 4), (6, 7), (5, 1), (5, 4), (5, 7))
 surfaces = ((0, 1, 2, 3), (3, 2, 7, 6), (6, 7, 5, 4), (4, 5, 1, 0), (1, 5, 7, 2), (4, 0, 3, 6))
@@ -14,21 +14,21 @@ colors = ((1, 0, 0), (0, 1, 0), (1, 0.5, 0), (1, 1, 0), (1, 1, 1), (0, 0, 1))
 
 
 def show_help():
-    text = "Komputerowa symulacja kostki Rubika\n\n"\
-           "Opcje dostępne w programie:\n"\
-           "* Lewy przycisk myszy - obróć kostkę\n"\
-           "* 1 do 9 - obrót warstw kostki\n" \
-           "* Q do O - przeciwny obrót warstw kostki\n" \
-           "* Z - cofnij ostatni ruch\n" \
-           "* X - cofnij wszystkie ruchy\n" \
-           "* C - zresetuj ustawienia kamery\n"\
-           "* V - potasuj kostkę\n\n"\
-           "* H - wyświetl pomoc\n"
-    # Funkcja wywoływana po kliknięciu przycisku "Pomoc"
-    messagebox.showinfo("Pomoc", text)
+    text = "Simulation of Rubik's Cube\n\n"\
+           "Options available in the program:\n"\
+           "* Left mouse button - rotate the cube\n"\
+           "* 1 to 9 - rotate layers of the cube\n" \
+           "* Q to O - rotate layers of the cube in the opposite direction\n" \
+           "* Z - undo the last move\n" \
+           "* X - undo all moves\n" \
+           "* C - reset camera settings\n"\
+           "* V - shuffle the cube\n\n"\
+           "* H - display help\n"
+    # Function called when the "Help" button is clicked
+    messagebox.showinfo("Help", text)
 
 
-# klasa reprezentująca pojedynczy sześcian
+# class representing a single cube
 class Cube:
     def __init__(self, id, N, scale):
         self.N = N
@@ -38,11 +38,11 @@ class Cube:
         self.rot = [[1 if i == j else 0 for i in range(3)] for j in range(3)]
 
     def isMoved(self, axis, slice):
-        # sprawdzenie, czy sześcian został obrócony
+        # check if the cube has been rotated
         return self.current_i[axis] == slice
 
     def update(self, axis, slice, dir):
-        # aktualizacja pozycji i obrót sześcianu po ruchu
+        # update the position and rotation of the cube after a move
         if not self.isMoved(axis, slice):
             return
 
@@ -55,13 +55,13 @@ class Cube:
             self.current_i[i] if dir > 0 else self.N - 1 - self.current_i[i])
 
     def MatrixTransform(self):
-        # macierz transformacji dla sześcianu
+        # transformation matrix for the cube
         scaleA = [[s * self.scale for s in a] for a in self.rot]
         scaleT = [(p - (self.N - 1) / 2) * 2.1 * self.scale for p in self.current_i]
         return [*scaleA[0], 0, *scaleA[1], 0, *scaleA[2], 0, *scaleT, 1]
 
     def draw(self, surf, animate, angle, axis, slice, dir):
-        # rysowanie sześcianów
+        # drawing cubes
         glPushMatrix()
         if animate and self.isMoved(axis, slice):
             glRotatef(angle * dir, *[1 if i == axis else 0 for i in range(3)])
@@ -77,21 +77,21 @@ class Cube:
         glPopMatrix()
 
 
-# klasa reprezentująca całą kostkę
+# class representing the entire cube
 class WholeCube:
     def __init__(self, N, scale):
         self.N = N
         cr = range(self.N)
         self.cubes = [Cube((x, y, z), self.N, scale) for x in cr for y in cr for z in cr]
-        self.small_cube = Cube((N // 2, N, N // 2), self.N, scale/2)  # Tworzenie małego sześcianu
+        self.small_cube = Cube((N // 2, N, N // 2), self.N, scale/2)  # Creating a small cube
         self.mouse_rotating = False
         self.mouse_start_pos = None
         self.angle_x = 0
         self.angle_y = 0
-        self.move_stack = []  # stos przechowuje historię ruchów
+        self.move_stack = []  # stack to store move history
 
     def rotate_cube_with_mouse(self):
-        # obrót kostki za pomocą myszy
+        # rotate the cube using the mouse
         if self.mouse_rotating:
             current_pos = pygame.mouse.get_pos()
             diff = (current_pos[0] - self.mouse_start_pos[0], current_pos[1] - self.mouse_start_pos[1])
@@ -106,27 +106,27 @@ class WholeCube:
         glRotatef(self.angle_y, 0, 1, 0)
 
     def undo_last_move(self):
-        # cofnięcie ruchu
+        # undo a move
         if self.move_stack:
             axis, slice, direction = self.move_stack.pop()
             for cube in self.cubes:
                 cube.update(axis, slice, -direction)
 
     def undo_all_moves(self):
-        # początkowe ustawienie kostki
+        # reset the cube to its initial state
         while self.move_stack:
             self.undo_last_move()
 
     def reset_camera(self):
-        # reset ustawienia kamery
+        # reset camera settings
         self.angle_x = 0
         self.angle_y = 0
 
     def scramble_cube(self, key_map):
-        # losowe tasowanie kostki
+        # randomly shuffle the cube
         moves = list(key_map.keys())
         random.shuffle(moves)
-        random_moves = moves[:20]  # Losowy wybór 20 ruchów
+        random_moves = moves[:20]  # Randomly select 20 moves
 
         for move in random_moves:
             axis, slice, direction = key_map[move]
@@ -194,7 +194,7 @@ class WholeCube:
             if animate:
                 animate_ang += animate_speed
 
-            # Punkt odniesienia
+            # Reference point
             glPushMatrix()
             glTranslatef(0, 10, 0)
             glScalef(0.5, 0.5, 0.5)
