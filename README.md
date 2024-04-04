@@ -45,7 +45,7 @@ This is a computer simulation of a Rubik's Cube, implemented in Python using Pyg
 4. Navigate to the directory containing the downloaded files.
 5. Run the script `main.py` using Python:
    ```
-   python rubik.py
+   python main.py
    ```
 
 <p>&nbsp;</p>
@@ -95,7 +95,7 @@ To jest komputerowa symulacja kostki Rubika, zaimplementowana w języku Python p
    ```
 3. Sklonuj lub pobierz to repozytorium.
 4. Przejdź do katalogu zawierającego pobrane pliki.
-5. Uruchom skrypt `rubik.py` za pomocą Pythona:
+5. Uruchom skrypt `main.py` za pomocą Pythona:
    ```
    python main.py
    ```
